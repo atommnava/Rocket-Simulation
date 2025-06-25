@@ -16,7 +16,20 @@ PLANET_SIZE = 50
 OBJ_SIZE = 5
 VEL_SCALE = 100
 
+# Images
 image1 = "background.jpg"
 image2 = "jupiter.png"
-BACKGROUND = pygame.image.load(image1)
-PLANET = pygame.image.load(image2)
+BACKGROUND = pygame.transform.scale(pygame.image.load(image1), WIDTH, HEIGHT)
+PLANET = pygame.transform.scale(pygame.image.load(image2), (PLANET_SIZE * 2, PLANET_MASS * 2))
+
+WHITE = (255,255,255)
+RED = (255,0,0)
+BLUE = (0,0,255)
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
+
+
