@@ -4,7 +4,7 @@ import math
 pygame.init()
 
 WIDTH, HEIGHT = 1600,1200
-window = pygame.display_mode((WIDTH, HEIGHT))
+win = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Gravitational Slingshot")
 
 # Constants
@@ -19,7 +19,7 @@ VEL_SCALE = 100
 # Images
 image1 = "background.jpg"
 image2 = "jupiter.png"
-BACKGROUND = pygame.transform.scale(pygame.image.load(image1), WIDTH, HEIGHT)
+BACKGROUND = pygame.transform.scale(pygame.image.load(image1), (WIDTH, HEIGHT))
 PLANET = pygame.transform.scale(pygame.image.load(image2), (PLANET_SIZE * 2, PLANET_MASS * 2))
 
 WHITE = (255,255,255)
@@ -27,7 +27,12 @@ RED = (255,0,0)
 BLUE = (0,0,255)
 
 def main():
-    pass
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+    pygame.quit()
 
 if __name__ == "__main__":
     main()
