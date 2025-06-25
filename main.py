@@ -4,7 +4,7 @@ import math
 pygame.init()
 
 WIDTH, HEIGHT = 1600,1200
-win = pygame.display.set_mode((WIDTH, HEIGHT))
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Gravitational Slingshot")
 
 # Constants
@@ -26,12 +26,16 @@ WHITE = (255,255,255)
 RED = (255,0,0)
 BLUE = (0,0,255)
 
-def main():
+def main() -> None:
     running = True
+    clock = pygame.time.Clock()
     while running:
+        clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        window.blit(BACKGROUND, (0,0))
+        pygame.display.update()
     pygame.quit()
 
 if __name__ == "__main__":
