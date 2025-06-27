@@ -1,6 +1,8 @@
 from main import *
 import pygame.draw
 
+from main import window, RED, OBJ_SIZE
+
 
 class Spacecraft:
     def __init__(self, x, y, vel_x, vel_y, mass):
@@ -16,3 +18,12 @@ class Spacecraft:
     def move(self, planet=None):
         self.x += self.vel_x
         self.y += self.vel_y
+
+class Planet:
+    def __init__(self, x, y, mass):
+        self.x = x
+        self.y = y
+        self.mass = mass
+
+    def draw(self):
+        window.blit(PLANET, (self.x - PLANET_SIZE, self.y - PLANET_SIZE))

@@ -40,6 +40,7 @@ def main() -> None:
     running = True
     clock = pygame.time.Clock()
 
+    planet = Planet(WIDTH // 2, HEIGHT // 2, PLANET_MASS)
     objects = []
     temp_obj_pos = None
     while running:
@@ -70,6 +71,9 @@ def main() -> None:
             off_screen = obj.x < 0 or obj.x > WIDTH or obj.y < 0 or obj.y > HEIGHT
             if off_screen:
                 objects.remove(obj)
+
+        planet.draw()
+
         pygame.display.update()
     pygame.quit()
 
