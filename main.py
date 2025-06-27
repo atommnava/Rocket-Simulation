@@ -28,6 +28,14 @@ WHITE = (255,255,255)
 RED = (255,0,0)
 BLUE = (0,0,255)
 
+def create_ship(Location, mouse):
+    t_x, t_y = Location
+    m_x, m_y = mouse
+    vel_x = m_x - t_x
+    vel_y = m_y - t_y
+    object = Spacecraft(t_x, t_y, vel_x, vel_y, SHIP_MASS)
+    return object
+
 def main() -> None:
     running = True
     clock = pygame.time.Clock()
@@ -43,8 +51,8 @@ def main() -> None:
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if temp_obj_pos:
-                    t_x, t_y = temp_obj_pos
-                    obj = Spacecraft(t_x, t_y, 0, 0, SHIP_MASS)
+
+                    obj = create_ship(temp_obj_pos, mouse_pos)
                     objects.append(obj)
                     temp_obj_pos = None
                 else:
@@ -58,6 +66,7 @@ def main() -> None:
 
         for obj in objects:
             obj.draw()
+            obj.move()
         pygame.display.update()
     pygame.quit()
 
