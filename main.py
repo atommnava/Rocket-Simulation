@@ -39,14 +39,15 @@ def main() -> None:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 temp_obj_pos = mouse_pos
 
         window.blit(BACKGROUND, (0,0))
 
-        if temp_obj_pos:
+        if temp_obj_pos :
             pygame.draw.circle(window, RED, temp_obj_pos, OBJ_SIZE)
-
+            pygame.draw.line(window, RED, temp_obj_pos, mouse_pos)
         pygame.display.update()
     pygame.quit()
 
