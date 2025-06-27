@@ -46,8 +46,8 @@ def main() -> None:
         window.blit(BACKGROUND, (0,0))
 
         if temp_obj_pos :
+            pygame.draw.line(window, RED, temp_obj_pos, mouse_pos, 2)
             pygame.draw.circle(window, RED, temp_obj_pos, OBJ_SIZE)
-            pygame.draw.line(window, RED, temp_obj_pos, mouse_pos)
         pygame.display.update()
     pygame.quit()
 
