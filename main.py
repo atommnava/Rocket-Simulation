@@ -1,6 +1,7 @@
 # Librarys
 import pygame
 import math
+from Spacecraft import *
 
 pygame.init()
 
@@ -41,13 +42,22 @@ def main() -> None:
                 running = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                temp_obj_pos = mouse_pos
+                if temp_obj_pos:
+                    t_x, t_y = temp_obj_pos
+                    obj = Spacecraft(t_x, t_y, 0, 0, SHIP_MASS)
+                    objects.append(obj)
+                    temp_obj_pos = None
+                else:
+                    temp_obj_pos = mouse_pos
 
         window.blit(BACKGROUND, (0,0))
 
         if temp_obj_pos :
             pygame.draw.line(window, RED, temp_obj_pos, mouse_pos, 2)
             pygame.draw.circle(window, RED, temp_obj_pos, OBJ_SIZE)
+
+        for obj in objects:
+            obj.draw()
         pygame.display.update()
     pygame.quit()
 
