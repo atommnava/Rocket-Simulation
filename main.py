@@ -4,7 +4,7 @@ import math
 
 pygame.init()
 
-WIDTH, HEIGHT = 1600,1200
+WIDTH, HEIGHT = 800,600
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Gravitational Slingshot")
 
@@ -30,12 +30,22 @@ BLUE = (0,0,255)
 def main() -> None:
     running = True
     clock = pygame.time.Clock()
+
+    objects = []
+    temp_obj_pos = None
     while running:
         clock.tick(FPS)
+        mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                temp_obj_pos = mouse_pos
+
         window.blit(BACKGROUND, (0,0))
+
+
+
         pygame.display.update()
     pygame.quit()
 
