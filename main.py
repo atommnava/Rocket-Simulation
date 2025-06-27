@@ -44,7 +44,8 @@ def main() -> None:
 
         window.blit(BACKGROUND, (0,0))
 
-
+        if temp_obj_pos:
+            pygame.draw.circle(window, RED, temp_obj_pos, OBJ_SIZE)
 
         pygame.display.update()
     pygame.quit()
