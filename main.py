@@ -64,7 +64,7 @@ def main() -> None:
             pygame.draw.line(window, RED, temp_obj_pos, mouse_pos, 2)
             pygame.draw.circle(window, RED, temp_obj_pos, OBJ_SIZE)
 
-        for obj in objects:
+        for obj in objects[:]:
             obj.draw()
             obj.move()
             off_screen = obj.x < 0 or obj.x > WIDTH or obj.y < 0 or obj.y > HEIGHT

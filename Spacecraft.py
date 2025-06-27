@@ -1,4 +1,4 @@
-from main import window, RED, OBJ_SIZE
+from main import *
 import pygame.draw
 
 
