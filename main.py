@@ -31,8 +31,8 @@ BLUE = (0,0,255)
 def create_ship(Location, mouse):
     t_x, t_y = Location
     m_x, m_y = mouse
-    vel_x = m_x - t_x
-    vel_y = m_y - t_y
+    vel_x = (m_x - t_x) / VEL_SCALE
+    vel_y = (m_y - t_y) / VEL_SCALE
     object = Spacecraft(t_x, t_y, vel_x, vel_y, SHIP_MASS)
     return object
 
@@ -67,6 +67,9 @@ def main() -> None:
         for obj in objects:
             obj.draw()
             obj.move()
+            off_screen = obj.x < 0 or obj.x > WIDTH or obj.y < 0 or obj.y > HEIGHT
+            if off_screen:
+                objects.remove(obj)
         pygame.display.update()
     pygame.quit()
 
