@@ -16,6 +16,9 @@ class Spacecraft:
         pygame.draw.circle(window, RED, (int(self.x), int(self.y)), OBJ_SIZE)
 
     def move(self, planet=None):
+        distance = math.sqrt((self.x - planet.x)**2 + (self.y - planet.y)**2)
+        force = (G * self.mass * planet.mass) / distance ** 2
+        acceleration = force / self.mass
         self.x += self.vel_x
         self.y += self.vel_y
 

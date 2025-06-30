@@ -70,7 +70,7 @@ def main() -> None:
             obj.draw()
             obj.move()
             off_screen = obj.x < 0 or obj.x > WIDTH or obj.y < 0 or obj.y > HEIGHT
-            # Pitagoras c^2=a^2+b^2
+            # Pitágoras c^2=a^2+b^2
             collided = math.sqrt((obj.x - planet.x)**2 + (obj.y - planet.y)**2) <= PLANET_SIZE
             if off_screen or collided:
                 objects.remove(obj)
