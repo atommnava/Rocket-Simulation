@@ -12,6 +12,8 @@ pygame.display.set_caption("Gravitational Slingshot")
 # Constants
 PLANET_MASS = 100
 SHIP_MASS = 5
+# Jupiter
+# Earth
 G = 5
 FPS = 60
 PLANET_SIZE = 50
@@ -68,7 +70,7 @@ def main() -> None:
 
         for obj in objects[:]:
             obj.draw()
-            obj.move()
+            obj.move(planet)
             off_screen = obj.x < 0 or obj.x > WIDTH or obj.y < 0 or obj.y > HEIGHT
             # Pitágoras c^2=a^2+b^2
             collided = math.sqrt((obj.x - planet.x)**2 + (obj.y - planet.y)**2) <= PLANET_SIZE

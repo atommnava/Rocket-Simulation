@@ -1,3 +1,5 @@
+import math
+
 from main import *
 import pygame.draw
 
@@ -19,6 +21,13 @@ class Spacecraft:
         distance = math.sqrt((self.x - planet.x)**2 + (self.y - planet.y)**2)
         force = (G * self.mass * planet.mass) / distance ** 2
         acceleration = force / self.mass
+        angle = math.atan2(planet.y - self.y, planet.x - self.x)
+
+        acceleration_x = acceleration * math.cos(angle)
+        acceleration_y = acceleration * math.sin(angle)
+
+        self.vel_x += acceleration_x
+        self.vel_y += acceleration_y
         self.x += self.vel_x
         self.y += self.vel_y
 
